@@ -1,0 +1,35 @@
+= Blocks
+Alex Soto <asotobu@gmail.com>
+:icons: font
+
+== Blocks are special paragraphs
+
+=== Source files
+
+[source, java]
+.HelloWorld.java
+----
+public static void main(String args[]) {
+	if(args.length == 0) {
+		throw new IllegalArgumentException(); // <1>
+	}
+}
+----
+<1> An exception is thrown if no arguments are provided.
+
+=== Admonitions
+
+[NOTE]
+====
+This is a note
+====
+
+[TIP]
+====
+Do not use Vector class if you are not really sure.
+====
+
+=== Quotes
+
+[quote, Albert Einstein]
+A person who never made a mistake never tried anything new.

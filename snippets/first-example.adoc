@@ -1,0 +1,38 @@
+= First Example
+Alex Soto <asotobu@gmail.com>
+
+== This is a section
+
+A paragraph is just a paragraph.
+
+You can use different styles like *bold*, _emphasis_ or `monospaced` text.
+
+Mathematical formulas are as easy as: e=mc^2^.
+
+== You can also use lists
+
+=== Ordered lists
+
+. apple
+. orange
+. banana
+
+=== Unordered
+
+* apple
+* orange
+* banana
+
+== Or even tables
+
+[cols="2", options="header"]
+|===
+|Application
+|Language
+
+|Asciidoc
+|Python
+
+|Asciidoctor
+|Ruby
+|===

@@ -1,0 +1,461 @@
+
+= 'Doctor', 'Doctor', my docs aren’t doing well. Can I get some *Asciidoctor* pills?
+Alex Soto <http://github.com/lordofthejars[@alexsotob]>
+v1.0.0, Aug 1, 2013
+:copyright: CC BY-SA 2.0
+:website: http://asciidoctor.org
+:twitter: @alexsotob
+include::attributes.conf[]
+
+
+== !
+
+"Working software over comprehensive documentation."
+-- Agile Manifesto
+
+[NOTE.speaker]
+====
+* "write only what gives value, drop the other things"
+====
+
+== !
+
+[.middle.stretch-y]
+image::Agile_Development_Poster_2.0.png[]
+
+[NOTE.speaker]
+====
+* "not waste our time formatting text or final layout"
+* "with collaboration"
+* "need a way to treat as code/tests/..."
+====
+
+== !
+
+[{caption-off}, crole="band"]
+.Collaboration
+image::handshake.jpg[]
+
+[.topic]
+== Source Code
+
+image::java-6.png[role="pull-left"]
+
+[.incremental.middle.pull-right]
+* forkable
+* pull requestable
+* mergeable
+* commitable
+* COLLABORATION
+
+[NOTE.speaker]
+====
+* "javadoc"
+====
+
+[.topic]
+== Test
+
+image::camera_test.png[role="pull-right"]
+
+[.incremental.middle.pull-left]
+* forkable
+* pull requestable
+* mergeable
+* commitable
+* COLLABORATION
+* ENSURES QUALITY
+
+[NOTE.speaker]
+====
+* "ensures that we are deliverying what our customers need"
+* "docs like User Stories with Acceptance criteria, scenarios, fixtures ..."
+====
+
+[.topic]
+== Environment's Configuration
+
+image::database.png[role="pull-left"]
+
+[.incremental.middle.pull-right]
+* forkable
+* pull requestable
+* mergeable
+* commitable
+* COLLABORATION
+
+[NOTE.speaker]
+====
+* "thanks of puppet or chef, our environment's configuration (that is server topology, ...) is Agile and can acts as docs"
+====
+
+[.topic]
+== Documentation
+
+image::System-Binary-icon.png[role="pull-right"]
+
+[.incremental.middle.pull-left]
+* forkable
+* pull requestable
+
+[.topic.terminal]
+== Mergeable
+
+....
+$ binary: git merge fix-village
+warning: Cannot merge binary files: quijote.doc (HEAD vs. fix-village)
+
+Auto-merging quijote.doc
+CONFLICT (content): Merge conflict in quijote.doc
+Automatic merge failed; fix conflicts and then commit the result.
+$ binary: git diff master..fix-village
+diff --git a/quijote.doc b/quijote.doc
+index 4d7a47b..c8a6206 100644
+Binary files a/quijote.doc and b/quijote.doc differ
+....
+
+== Manual Merge
+
+[{caption-off}, crole="band"]
+.Start a Formatting War
+image::formats.jpg[]
+
+[NOTE.speaker]
+====
+* "having multiple files means a manual process of copy paste which will be a headache because of formats"
+* "example of copying from web to doc, we only want contents not format"
+====
+
+== !
+
+[{caption-off}, crole="band"]
+.Traceable
+image::track.jpg[]
+
+[NOTE.speaker]
+====
+* "given an element (can be code, test, document, an issue) I want to know all changes to that element and all releated modifications with the change", for example given an issue I want to which code was affected, which documents were touched, tests, ...
+====
+
+[.topic]
+== Responsive
+
+[.middle.stretch-x]
+image::responsive.jpg[]
+
+== !
+
+[{caption-off}, crole="band"]
+.We need a *lightweight* way to write *documentation*
+image::ballon.jpg[]
+
+[NOTE.speaker]
+====
+* "fast to write (no change of context)"
+* "no worries about format, style or layout"
+====
+
+== !
+
+[.statement]
+Lightweight *markup* languages
+
+[.statement.incremental]
+content *+* metadata
+
+[NOTE.speaker]
+====
+* "example of markup languages for documentation markdown, textile, mediawiki, docbook, and of course AsciiDoc"
+* "treat as code so we will take advantage of tools and methodologies used for code development (SCM)"
+====
+
+[.topic.intro]
+== ``It's just plain 'text'.''
+
+[NOTE.speaker]
+====
+* "AsciiDoc is easy to read in raw form, needs your favourite text editor and SCM without problem."
+====
+
+[.topic]
+== Rendered Document
+
+[.middle.stretch-x]
+image::render.jpg[]
+
+[.topic.source]
+== DocBook
+
+[source, xml]
+----
+include::snippets/sample-docbook.xml[lines=1..22]
+    ...
+----
+
+[.topic.source]
+== DocBook (and going...)
+
+[source, xml]
+----
+    ...
+include::snippets/sample-docbook.xml[lines=23..44]
+            ...
+----
+
+[.topic.source]
+== DocBook (at last!)
+
+[source, xml]
+----
+            ...
+include::snippets/sample-docbook.xml[lines=45..-1]
+----
+
+== !
+
+"DocBook is nice, but (like XML) it is *not meant for editing* nor for merging changes (by humans)."
+-- Dag Wieers
+
+[NOTE.speaker]
+====
+* "it is inhumane to write/maintain/read from this"
+====
+
+[.topic.source]
+== Markdown
+
+[source, markdown]
+----
+include::snippets/sample-markdown.md[]
+----
+
+[NOTE.speaker]
+====
+* "better but note that we are embedding html tags (presentation), and Markdown works pretty well for issues, small docs, ... but does not offers "
+* "capabilities for more complex structures like toc, refs to other docs, ..."
+====
+
+[.topic.source]
+== AsciiDoc
+
+[source, asciidoc]
+----
+include::snippets/sample-asciidoc.adoc[]
+----
+
+[NOTE.speaker]
+====
+* "links are written in form similar to HTML links, pretty intuitive even in plain text seems to have style"
+====
+
+== Asciidoctor
+
+[.statement]
+*[script]##A##sciidoctor* +
+A modern, open source implementation of AsciiDoc [ruby]#in Ruby#
+
+[.corner]
+image::rubygems.png[Ruby gem]
+
+[NOTE.speaker]
+====
+* "open source AsciiDoc renderer implemented in Ruby"
+* "which renders to html, docbook -> pdf, ebook, or also custom templates (slim or haml)"
+====
+
+== !
+
+[.elevate, {caption-off}]
+.Asciidoctor Java integration 
+image::asciidoctor-java.png[]
+
+[NOTE.speaker]
+====
+* "you use in Java without noticing that internally are using a Ruby gem.
+====
+
+[.topic.source]
+== Example
+
+[source, java]
+----
+include::snippets/adoc.java[]
+----
+
+[.topic]
+== ... and thanks of Java Integration
+
+[.scatter.incremental]
+* https://github.com/asciidoctor/asciidoctor-maven-plugin[Maven Plugin]
+* https://github.com/asciidoctor/asciidoctor-gradle-plugin[Gradle Plugin]
+* https://github.com/asciidoctor/asciidoclet[Asciidoclet]
+* http://jbake.org/[jBake]
+* https://github.com/asciidoctor/asciidoctor-java-integration/issues/22?source=cc[OSGi]
+* https://github.com/Hocdoc/sandoc[Sandoc]
+* http://blogs.steeplesoft.com/posts/2013/04/30/javafx-asciidoctor-a-qnd-hack/[Java FX]
+
+== !
+
+[{caption-off}, crole="band"]
+.Let's render some documents
+image::engine.jpg[]
+
+ifdef::withdemo[]
+== First Example
+
+[source, asciidoc]
+----
+include::snippets/first-example.adoc[]
+----
+
+== Blocks Example
+
+[source, asciidoc]
+----
+include::snippets/blocks.adoc
+----
+
+== UI Example
+
+[source, asciidoc]
+----
+include::snippets/ui-macros.adoc
+----
+
+
+endif::withdemo[]
+
+== !
+
+[{caption-off}, crole="band"]
+.Documentation is Diverse
+image::comic.jpg[]
+
+[NOTE.speaker]
+====
+* "They have different purpose (presentation, know what to do, ensure quality)"
+* "Are written by different people and for different people"
+====
+
+== Project Documentation
+
+[.scatter.incremental]
+* Specifications [detail]#Stakeholders, QA, Developers#
+* Technical Designs [detail]#Developers#
+* User Stories [detail]#QA, Developers#
+* Javadoc [detail]#Developers#
+* Manuals [detail]#Developers, PM, PD#
+* and Presentations, Issues, ...
+
+== !
+
+[{caption-off}, crole="band"]
+.As closest to writers as possible
+image::close.jpg[]
+
+[NOTE.speaker]
+====
+* "Docs should be as close to writer as possible so it can be updated at same time it is developed without having to change our context. Developers are involved almost in all documentation so it should be stored within project source code"
+* "Specifications can go to a separate module or root"
+* "Technical Designs go to same project and splitted with every component"
+* "User stories at ATDD project"
+* "Javadoc"
+* "Manuals (if technicals to same project and splitted with funcionalities)"
+====
+
+== !
+
+[{caption-off}, crole="band"]
+.Let's see in Action
+image::engine.jpg[]
+
+== !
+
+[{caption-off}, crole="band"]
+.Documentation is a living system
+image::live.jpg[]
+
+[NOTE.speaker]
+====
+* "As living system you should take care of it, remember to treat as source code if you push code with a related issue id do the same, if you make code reviews do documentation reviews, ..."
+* "If you are using CI or CD, docs can be rendered and published in every commit too, so everyone not only have the last working version but also the last approved documentation.""
+====
+
+[.topic]
+== Docs on the cloud
+
+image:openshift.png[role="pull-right"]
+
+[.scatter.incremental]
+* Publish as WAR file [detail]#maven-assembly-plugin#
+* Publish to Github.io [detail]#awestruct, Github#
+* Publish as Blog/Posts [detail]#jBake#
+* Smart Search [detail]#MongoDB, Elasticsearch#
+
+== !
+
+[{caption-off}, crole="band"]
+.Anywhere Anytime Everybody
+image::handshake.jpg[]
+
+[NOTE.speaker]
+====
+* "You can write documentation anywhere (laptop, tablet, mobile), anytime because this year smartphones/tablets will sales of laptops and for everybody you do not need nothing special rather than a text editor."
+====
+
+== !
+
+[{caption-off}, crole="band"]
+.I have no TIME!!!
+image::stress.jpg[]
+
+[NOTE.speaker]
+====
+* "people said the same with tests, and now all people believes in test"
+====
+
+[.topic]
+== Benefits
+
+[.incremental]
+* improves your mind and thoughts
+* improves your code
+
+[.topic]
+== https://github.com/mojavelinux/docbookrx
+
+[.middle.stretch-y]
+image::cookie_monster.jpg[]
+
+[.topic]
+== Who's doing AsciiDoc?
+
+[.scatter.incremental]
+* https://github.com/git/git/tree/master/Documentation[Git] [detail]#User guide, man pages#
+* https://github.com/neo4j/neo4j/tree/master/manual/src[Neo4j] [detail]#Manual, refcards#
+* https://github.com/cdi-spec/cdi/tree/master/spec[CDI] [detail]#Specification#
+* http://static.springsource.org/spring-xd/docs/1.0.0.M1/reference/html[Spring XD] [detail]#Manual#
+* http://www.nofluffjuststuff.com/home/magazine_subscribe[NFJS] [detail]#Magazine#
+* Authors [detail]#Books, articles#
+* Publishers [detail]#O'Reilly#
+* *GitHub!*
+
+== !
+
+[{caption-off}, crole="band"]
+.www.asciidoctor.org
+image::open.jpg[]
+
+== !
+
+[{caption-off}, crole="band"]
+.https://github.com/lordofthejars/
+image::github.jpg[]
+
+[.topic.ending, hrole="name"]
+== Thanks!
+
+[.footer]
+
+{author} {twitter} 
+

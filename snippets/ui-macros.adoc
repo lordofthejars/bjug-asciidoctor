@@ -1,0 +1,30 @@
+= UI Macros
+:experimental:
+:icons: font
+
+== Keyboard
+
+When users push kbd:[F5] webpage should be refreshed.
+
+When users push kbd:[Ctrl+T] a new tab should be opened.
+
+== Menus
+
+When user navigate to menu:File[Save] page should be saved.
+
+== Buttons
+
+When user select btn:[Ok] transaction should be commited.
+
+== Font Awesome
+
+icon:tags[2x] bjug, asciidoctor
+
+== Checklists
+
+- [x] First task
+- [ ] Second task
+
+== Footnotes
+
+A statement.footnote:[Clarification about this statement.]
