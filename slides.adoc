@@ -458,4 +458,3 @@ image::github.jpg[]
 [.footer]
 
 {author} {twitter} 
-
